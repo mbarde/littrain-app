@@ -1,17 +1,13 @@
 <template>
   <div id="app">
-    <Books/>
+     <router-view/>
   </div>
 </template>
 
 <script>
-import Books from './components/Books.vue'
 
 export default {
-  name: 'app',
-  components: {
-    Books
-  }
+  name: 'app'
 }
 </script>
 
