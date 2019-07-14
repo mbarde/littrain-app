@@ -2,39 +2,39 @@
   <div>
     <h1>Books</h1>
     <div v-for="(book, index) in books" :key="index">
-      <book :title="book.title"
-            :author="book.author">
-      </book>
+      <book-list-item :title="book.title"
+            :author="book.author"
+            :id="book.id">
+      </book-list-item>
     </div>
   </div>
 </template>
 
 <script>
-
 import { getContent } from '../utils/plone-api'
-import Book from './Book.vue'
+import BookListItem from './BookListItem.vue'
 
 export default {
   name: 'Books',
   components: {
-    Book
+    BookListItem
   },
   data () {
     return {
-      books: [
-        {'title': 'Alice in Wonderland', 'author': 'Lewis Carroll'},
-        {'title': 'His Dark Materials', 'author': 'Philipp Pullmann'},
-      ]
+      books: [],
     }
   },
   mounted () {
-    getContent('http://localhost:5080/Plone/books').then((res) => {
-      console.log(res)
+    getContent('/books').then((res) => {
+      res.items.forEach((item) => {
+        getContent(item['@id']).then((book) => {
+          this.books.push(book)
+        })
+      })
     })
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 </style>

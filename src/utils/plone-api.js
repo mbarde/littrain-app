@@ -3,7 +3,7 @@
 import axios from 'axios'
 
 const SESS_PREFIX_CACHED = 'cached_'
-const BASE_URL = 'http://localhost:5080'
+const BASE_URL = 'http://localhost:5080/Plone'
 
 export { getContent }
 
