@@ -28,11 +28,12 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+@import '../assets/globals.less';
 div.lemma {
   text-align: left;
 }
 div.lemma:hover {
-  background-color: rgba(0,0,130, 0.3);
+  background-color: @clr-d;
 }
 </style>

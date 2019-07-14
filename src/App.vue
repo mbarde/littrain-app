@@ -1,24 +1,30 @@
 <template>
   <div id="app">
-     <router-view/>
+    <top-nav />
+    <router-view />
   </div>
 </template>
 
 <script>
+import TopNav from './components/TopNav.vue'
 
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    TopNav,
+  },
 }
 </script>
 
-<style>
+<style lang="less">
+@import './assets/globals.less';
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: @clr-font-default;
   max-width: 750px;
   margin-left: auto;
   margin-right: auto;
@@ -32,9 +38,8 @@ export default {
   margin-bottom: 20px;
   padding: 0 20px 20px 20px;
   cursor: pointer;
-}
-
-.list-item:hover {
-  box-shadow: none;
+  &:hover {
+    box-shadow: none;
+  }
 }
 </style>

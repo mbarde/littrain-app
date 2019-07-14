@@ -1,5 +1,6 @@
 <template>
   <div>
+    <nerd-icon number="6" />
     <h1>Books</h1>
     <div v-for="(book, index) in books" :key="index">
       <book-list-item :title="book.title"
@@ -13,11 +14,13 @@
 <script>
 import { getContent } from '../utils/plone-api'
 import BookListItem from './BookListItem.vue'
+import NerdIcon from './NerdIcon.vue'
 
 export default {
   name: 'Books',
   components: {
-    BookListItem
+    BookListItem,
+    NerdIcon,
   },
   data () {
     return {

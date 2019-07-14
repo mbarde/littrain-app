@@ -29,11 +29,12 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+@import '../assets/globals.less';
 div.chapter {
   text-align: left;
-}
-div.chapter:hover {
-  background-color: rgba(130,0,130, 0.3);
+  &:hover {
+    background-color: @clr-c;
+  }
 }
 </style>
