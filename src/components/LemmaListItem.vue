@@ -1,5 +1,5 @@
 <template>
-  <div class="lemma" v-on:click="onClick">
+  <div class="list-item lemma" v-on:click="onClick">
     <h3>{{title}}</h3>
     <i v-if="lemma">{{lemma.count}} occurences</i>
   </div>
@@ -30,18 +30,9 @@ export default {
 
 <style scoped>
 div.lemma {
-  box-shadow: 0 2px 3px rgba(0,0,0,0.06);
-  border: 1px solid rgba(150,150,150,0.3);
-  border-bottom-color: rgba(150, 150, 150, 0.3);
-  border-bottom-color: rgba(125,125,125,0.3);
-  margin-bottom: 20px;
-  padding: 0 20px 20px 20px;
-  cursor: pointer;
+  text-align: left;
 }
 div.lemma:hover {
   background-color: rgba(0,0,130, 0.3);
-}
-div.lemma {
-  text-align: left;
 }
 </style>
