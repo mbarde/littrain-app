@@ -1,6 +1,6 @@
 <template>
   <div>
-  <transition name="rotate">
+  <transition :name="mTransition">
     <object v-if="show" :class="imgClass" :data="imgSrc" type="image/svg+xml" />
   </transition>
 </div>
@@ -9,12 +9,13 @@
 <script>
 export default {
   name: 'NerdIcon',
-  props: ['number', 'size'],
+  props: ['number', 'size', 'transition'],
   data () {
     return {
       imgSrc: false,
       imgClass: 'icon',
       show: false,
+      mTransition: '',
     }
   },
   mounted () {
@@ -31,6 +32,7 @@ export default {
     if (this.size == 'large') {
       this.imgClass = 'icon large'
     }
+    if (this.transition) this.mTransition = this.transition
     this.show = true
   }
 }
@@ -65,6 +67,23 @@ export default {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nerd-icon number="6" />
+    <nerd-icon number="6" transition="bounce" />
     <h1>Books</h1>
     <div v-for="(book, index) in books" :key="index">
       <book-list-item :title="book.title"

@@ -1,6 +1,6 @@
 <template>
   <div v-if="book" class="book">
-    <nerd-icon number="14" />
+    <nerd-icon number="14" transition="rotate" />
     <h1>{{book.title}}</h1>
     <i>by {{book.author}}</i>
     <hr/>
