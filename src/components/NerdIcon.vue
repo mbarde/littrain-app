@@ -1,5 +1,9 @@
 <template>
-  <object :class="imgClass" :data="imgSrc" type="image/svg+xml" />
+  <div>
+  <transition name="rotate">
+    <object v-if="show" :class="imgClass" :data="imgSrc" type="image/svg+xml" />
+  </transition>
+</div>
 </template>
 
 <script>
@@ -10,6 +14,7 @@ export default {
     return {
       imgSrc: false,
       imgClass: 'icon',
+      show: false,
     }
   },
   mounted () {
@@ -26,6 +31,7 @@ export default {
     if (this.size == 'large') {
       this.imgClass = 'icon large'
     }
+    this.show = true
   }
 }
 </script>
@@ -45,6 +51,20 @@ export default {
   &.large {
     width: 256px;
     height: 256px;
+  }
+}
+.rotate-enter-active {
+  animation: rotate-in .5s;
+}
+.rotate-leave-active {
+  animation: rotate-in .5s reverse;
+}
+@keyframes rotate-in {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 </style>
