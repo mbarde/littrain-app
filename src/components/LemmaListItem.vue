@@ -1,6 +1,6 @@
 <template>
   <div class="list-item lemma" v-on:click="onClick" v-if="lemma">
-    <h3>{{title}}</h3>
+    <h3 :id="'h3-' + lemma.UID">{{title}}</h3>
     <i class="pos">{{lemma.partOfSpeech}}</i>
     <i class="occ">{{lemma.count}} occurences</i>
     <transition name="slide">
@@ -30,6 +30,7 @@ export default {
   methods: {
     onClick: function() {
       this.showContent = !this.showContent
+      this.$scrollTo(`#h3-${this.lemma.UID}`, 600)
     }
   },
   mounted () {
