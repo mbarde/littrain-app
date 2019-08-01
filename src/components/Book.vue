@@ -9,6 +9,7 @@
                          :url="chapter['@id']">
       </chapter-list-item>
     </div>
+    <btn-to-top/>
   </div>
 </template>
 
@@ -16,12 +17,14 @@
 import { getContent } from '../utils/plone-api'
 import ChapterListItem from './ChapterListItem.vue'
 import NerdIcon from './NerdIcon.vue'
+import BtnToTop from './BtnToTop.vue'
 
 export default {
   name: 'Book',
   components: {
     ChapterListItem,
     NerdIcon,
+    BtnToTop,
   },
   data () {
     return {

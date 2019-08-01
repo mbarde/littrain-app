@@ -7,17 +7,20 @@
                          :url="lemma['@id']">
       </lemma-list-item>
     </div>
+    <btn-to-top/>
   </div>
 </template>
 
 <script>
 import { getContent } from '../utils/plone-api'
 import LemmaListItem from './LemmaListItem.vue'
+import BtnToTop from './BtnToTop.vue'
 
 export default {
   name: 'Chapter',
   components: {
     LemmaListItem,
+    BtnToTop,
   },
   data () {
     return {
