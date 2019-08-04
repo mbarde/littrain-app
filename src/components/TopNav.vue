@@ -1,7 +1,7 @@
 <template>
   <nav class="top-nav">
     <button v-if="parentPath.length > 0"
-            class="btn" id="btn-back" @click="gotoParent">Back</button>
+            class="btn" id="btn-back" @click="gotoParent">☚</button>
   </nav>
 </template>
 
@@ -42,6 +42,11 @@ nav.top-nav {
     position: absolute;
     left: 0;
     top: 0;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    padding: 0;
+    padding-bottom: 4px;
   }
 }
 </style>

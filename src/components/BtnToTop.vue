@@ -42,11 +42,12 @@ export default {
   border-radius: 50%;
   position: fixed;
   bottom: 25px;
-  left: 25px;
+  right: 25px;
   width: 64px;
   height: 64px;
   padding: 0;
   box-shadow: 0 2px 3px rgba(0,0,0,0.06);
+  background: white;
 
   span {
     line-height: 56px;
