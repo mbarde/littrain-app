@@ -17,18 +17,22 @@ export default {
     }
   },
   watch: {
-    '$route' (to) {
-      this.path = to.path
-      var a = this.path.split('/')
-      this.parentPath = a.slice(0, a.length-1).join('/')
+    '$route' () {
+      this.updatePathes()
     }
   },
   methods: {
     gotoParent: function() {
       this.$router.push(this.parentPath)
+    },
+    updatePathes: function() {
+      this.path = this.$router.currentRoute.fullPath
+      var a = this.path.split('/')
+      this.parentPath = a.slice(0, a.length-1).join('/')
     }
   },
   mounted () {
+    this.updatePathes()
   }
 }
 </script>
