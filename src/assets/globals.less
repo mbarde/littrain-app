@@ -6,14 +6,16 @@
 
 @clr-font-default: #2c3e50;
 
+@btn-border-gray: #e8e9eb;
+
 .btn {
   background: transparent;
-  border: 1px solid #e8e9eb;
+  border: 1px solid @btn-border-gray;
   color: @clr-font-default;
   padding: 10px;
   cursor: pointer;
   &:hover {
-    background-color: #e8e9eb;
+    background-color: @btn-border-gray;
   }
 }
 
