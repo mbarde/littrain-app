@@ -1,11 +1,12 @@
 /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 
 import axios from 'axios'
+import { getToken, setToken } from './auth'
 
 const SESS_PREFIX_CACHED = 'cached_'
 const BASE_URL = 'http://localhost:5080/Plone'
 
-export { getContent }
+export { getContent, login }
 
 function pathToURL (path) {
   var url = ''
@@ -16,6 +17,18 @@ function pathToURL (path) {
   }
   return url;
 }
+
+function login (username, password) {
+  const url = `${BASE_URL}` + '/@login'
+  return axios.post(url,
+									{'login': username, 'password': password},
+									{ headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}}
+        ).then(
+          (response) => { setToken(response.data.token); return 200 },
+          (error) => error.response.status
+        )
+}
+
 
 function getContent (path, allowCaching = false) {
   var url = pathToURL(path)
@@ -33,7 +46,7 @@ function getContent (path, allowCaching = false) {
       }
     }
   }
-  return axios.get(url, {headers: {'Accept': 'application/json'}})
+  return axios.get(url, { headers: {'Accept': 'application/json', Authorization: `Bearer ${getToken()}` } })
               .then(
                 (response) => {
                   if (allowCaching) {
